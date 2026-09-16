@@ -15,6 +15,7 @@ quantization change what a model memorizes and how reliably it recalls facts? Us
 black-box memorization probing (Ravichander et al., arXiv:2503.12072). Result across **6 models**:
 INT4 leaves factual accuracy unchanged (replicated null); memorization is driven by model scale, not
 precision. A pilot false positive was caught and corrected by scaling — measure, don't assert.
+[DOI: 10.6084/m9.figshare.33858859](https://doi.org/10.6084/m9.figshare.33858859)
 
 > **Cross-modality validation:** the same "INT4 preserves the intended task output" conclusion holds
 > in *two* independent settings I measured — LLM factual accuracy (this study, replicated null) **and**
