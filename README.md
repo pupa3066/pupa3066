@@ -16,6 +16,12 @@ black-box memorization probing (Ravichander et al., arXiv:2503.12072). Result ac
 INT4 leaves factual accuracy unchanged (replicated null); memorization is driven by model scale, not
 precision. A pilot false positive was caught and corrected by scaling — measure, don't assert.
 
+> **Cross-modality validation:** the same "INT4 preserves the intended task output" conclusion holds
+> in *two* independent settings I measured — LLM factual accuracy (this study, replicated null) **and**
+> diffusion image fidelity (SDXL UNet, fp16→int4 at 3.8× compression, cosine 0.997–0.998). Two
+> modalities, one measured conclusion; and they stay orthogonal on memorization (fidelity ≠ verbatim
+> recall). Efficiency as an independent variable, model behavior as the dependent variable.
+
 **[context-configuration-builder](https://github.com/pupa3066/context-configuration-builder)** —
 Turns a published negative result on repository context files (ETH, arXiv:2602.11988) into a
 pre-registered controlled study: does access-pattern-tiered context recover coding-agent task success
