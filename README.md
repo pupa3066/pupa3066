@@ -2,13 +2,30 @@
 
 Measurement-first ML / NLP researcher: data-centric interpretability, model reliability, and on-device efficiency. I study how the data and interventions applied to a model change its behavior (memorization, factuality), and I hold my own results to a hard standard: I report nulls and correct my own false positives.
 
-Website · LinkedIn · ORCID 0009-0000-6441-7962
+[Website](https://pupa3066.github.io) · [LinkedIn](https://www.linkedin.com/in/purnima-pathak-86597b296) · [ORCID 0009-0000-6441-7962](https://orcid.org/0009-0000-6441-7962) · [Kaggle](https://www.kaggle.com/purnimapathak15)
 
-## Featured research
+## Selected work
 
-**quant-memorization-study**: Does quantization change what a model memorizes and how reliably it recalls facts? Uses efficiency (INT8/INT4) as the independent variable and model behavior as the dependent variable, extending black-box memorization probing (Ravichander et al., 2025, arXiv:2503.12072). Result across 6 models: INT4 leaves factual accuracy unchanged (a replicated null); memorization is driven by model scale, not precision. A pilot false positive was caught and corrected by scaling; measure, do not assert. Released as a Figshare preprint, DOI: 10.6084/m9.figshare.33858859. Cross-hardware replication (NVIDIA CUDA) by Akshay Upadhyay.
+- [gemma4-agent-track-blind-spots](https://github.com/pupa3066/gemma4-agent-track-blind-spots): code and data for the Gemma 4 Developer Agent Paper Track writeup *What a Code Search Index Cannot See: Coverage, Chunk Length, Missing Async Code*. Coverage and chunk length both replicated on 300 real GitHub issues (SWE-bench Lite, 12 repositories), registered before the data.
+- [quant-memorization-study](https://github.com/pupa3066/quant-memorization-study): does quantization change what a model memorizes and how reliably it recalls facts? Extends black-box memorization probing (Ravichander et al., 2025, arXiv:2503.12072). INT4 leaves factual accuracy unchanged (a replicated null); memorization follows model scale, not precision. Released as a Figshare preprint, DOI: [10.6084/m9.figshare.33858859](https://doi.org/10.6084/m9.figshare.33858859). Cross-hardware replication (NVIDIA CUDA) by Akshay Upadhyay.
+- [context-configuration-builder](https://github.com/pupa3066/context-configuration-builder): a pre-registered controlled study of repository context for coding agents, building on a published negative result (ETH, arXiv:2602.11988): does access-pattern-tiered context recover task success at lower cost? Real SWE-bench test grading and from-scratch statistics (McNemar, bootstrap CIs, non-inferiority). BSL 1.1.
+- [gemma4-agent-selftest-scorable-tasks-and-traces](https://www.kaggle.com/datasets/purnimapathak15/gemma4-agent-selftest-scorable-tasks-and-traces): Kaggle dataset; which of the competition's 129 published tasks can be scored locally (72), with every per-task result and trace.
 
-**context-configuration-builder (Consistent Context Kit)**: Turns a published negative result on repository context files (ETH, arXiv:2602.11988) into a pre-registered controlled study: does access-pattern-tiered context recover coding-agent task success at lower cost? Real SWE-bench test-execution grading plus from-scratch statistics (McNemar, bootstrap CIs, non-inferiority, CMH, permutation). Shares one principle with the quantization work, spend the expensive resource only where it changes behavior, wired together in code. BSL 1.1.
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/coverage-dark.svg">
+    <img src="assets/coverage-light.svg" width="880" alt="Bar chart: on 300 SWE-bench Lite issues, dense retrieval returned the changed code for 0.263 of issues with all code indexed and 0.143 with a quarter of it indexed; exact McNemar p = 7e-6.">
+  </picture>
+</p>
+<p align="center"><sub><samp>fig. 1</samp>: coverage, not the retrieval method, sets the ceiling; from gemma4-agent-track-blind-spots</sub></p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/chunk-length-dark.svg">
+    <img src="assets/chunk-length-light.svg" width="880" alt="Bar chart: at equal returned text on 300 SWE-bench Lite issues, dense retrieval found the changed code for 0.523 of issues with 8-line chunks and 0.377 with 400-word chunks (p = 2.3e-5); BM25 went the other way, 0.390 and 0.447.">
+  </picture>
+</p>
+<p align="center"><sub><samp>fig. 2</samp>: the same code, cut longer than the embedder reads, stops being found; from gemma4-agent-track-blind-spots</sub></p>
 
 ## Approach
 
